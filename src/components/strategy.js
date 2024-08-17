@@ -95,7 +95,7 @@ export class PromiseStrategy extends LitElement {
   static get styles() {
     return css`
       :host {
-        height: 500px;
+        /* height: 500px; */
         width: 320px;
       }
       article.fail {
