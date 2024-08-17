@@ -9,15 +9,31 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
+    <style>
+      #app {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      .mb-2 {
+        margin-bottom: 2rem;
+      }
+      header {
+        text-align: center;
+      }
+    </style>
     <script type="module" src="/src/index.js"></script>
     <script type="module" src="/src/components/strategy.js"></script>
   </head>
   <body>
-    <header>
-      <h2>Javascript Promise combinators</h2>
-      <a href="#">Re-render</a>
-    </header>
-    <main></main>
-    <footer></footer>
+    <main class="container">
+      <header class="mb-2">
+        <h2>Javascript Promise combinators</h2>
+        <a href="#">Re-render</a>
+      </header>
+      <main id="app"></main>
+      <footer></footer>
+    </main>
   </body>
 </html>

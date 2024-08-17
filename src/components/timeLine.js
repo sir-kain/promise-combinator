@@ -11,7 +11,7 @@ export class TimeLine extends LitElement {
 
   constructor() {
     super();
-    this.width = "0%";
+    this.width = "0";
   }
 
   move() {
@@ -21,7 +21,7 @@ export class TimeLine extends LitElement {
         clearInterval(this.id);
       } else {
         progress++;
-        this.width = progress + "%";
+        this.width = `${progress}`;
         this.requestUpdate();
       }
     }, 30);
@@ -29,19 +29,22 @@ export class TimeLine extends LitElement {
 
   render() {
     return html`
-      <style>
-        .progress-indicator {
-          width: ${this.width};
-        }
-      </style>
-      <div class="progress-bar">
-        <div class="progress-indicator ${this.result}"></div>
-      </div>
+      <progress
+        value="${this.width}"
+        max="100"
+        class="${this.result}"
+      ></progress>
     `;
   }
 
   connectedCallback() {
     super.connectedCallback();
+    const linkElement = document.createElement("link");
+    linkElement.rel = "stylesheet";
+    linkElement.href =
+      "https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css";
+    this.shadowRoot.appendChild(linkElement);
+
     this.move();
   }
 
@@ -52,21 +55,37 @@ export class TimeLine extends LitElement {
 
   static get styles() {
     return css`
-      .progress-bar {
-        width: 300px;
-        background-color: black;
+      progress {
+        display: block;
+        color: #C59A00;
+        width: 200px;
         margin-bottom: 1rem;
       }
+      progress::-webkit-progress-value {
+        background-color: #C59A00 !important;
+      }
+      progress::-moz-progress-bar {
+        background-color: #C59A00 !important;
+      }
 
-      .progress-indicator {
-        height: 10px;
-        background-color: yellow;
+      progress.fail {
+        color: #E42855;
       }
-      .progress-indicator.fail {
-        background-color: red;
+      progress.fail::-webkit-progress-value {
+        background-color: #E42855 !important;
       }
-      .progress-indicator.success {
-        background-color: green;
+      progress.fail::-moz-progress-bar {
+        background-color: #E42855 !important;
+      }
+
+      progress.success {
+        color: #00A261;
+      }
+      progress.success::-webkit-progress-value {
+        background-color: #00A261 !important;
+      }
+      progress.success::-moz-progress-bar {
+        background-color: #00A261 !important;
       }
     `;
   }
