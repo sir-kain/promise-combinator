@@ -70,7 +70,7 @@ export class PromiseStrategy extends LitElement {
     return html`
       <article class="${this.result}">
         <header>
-          <h4>Promise ${this.type}</h4>
+          <h4>Promise.${this.type}([])</h4>
         </header>
         <time-line
           result="${this.timeLine1.result}"
@@ -96,7 +96,7 @@ export class PromiseStrategy extends LitElement {
     return css`
       :host {
         height: 500px;
-        width: 300px;
+        width: 320px;
       }
       article.fail {
         border: 1px solid #E42855;

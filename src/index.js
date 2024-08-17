@@ -32,17 +32,17 @@ const combinators = [
     `,
   },
   {
-    type: "allSettled",
-    description: `
-    - Se resous à la fin de toutes les promesses
-    Retour: Tableau des valeurs de retour de chaque promesse avec leur status
-    `,
-  },
-  {
     type: "race",
     description: `
     - Se résous / reject selon le premier resultat obtenu.
     Retourne la valeur de la 1ere promesse.
+    `,
+  },
+  {
+    type: "allSettled",
+    description: `
+    - Se resous à la fin de toutes les promesses
+    Retour: Tableau des valeurs de retour de chaque promesse avec leur status
     `,
   },
 ];
