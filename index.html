@@ -22,6 +22,18 @@
       header {
         text-align: center;
       }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      .footer span {
+        font-size: 14px;
+      }
     </style>
     <script type="module" src="/src/index.js"></script>
     <script type="module" src="/src/components/strategy.js"></script>
@@ -33,7 +45,12 @@
         <a href="#">Re-render</a>
       </header>
       <main id="app"></main>
-      <footer></footer>
+      <footer class="footer">
+        <span>
+          Built by
+          <a href="https://github.com/sir-kain/promise-combinator">Waly</a>
+        </span>
+      </footer>
     </main>
   </body>
 </html>
